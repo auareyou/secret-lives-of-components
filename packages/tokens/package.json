@@ -1,0 +1,13 @@
+{
+  "name": "@secret-lives/tokens",
+  "version": "0.0.0",
+  "description": "CSS custom property definitions and theme presets for Secret Lives components.",
+  "license": "MIT",
+  "type": "module",
+  "files": ["src"],
+  "exports": {
+    "./primitives.css": "./src/primitives.css",
+    "./semantic.css": "./src/semantic.css",
+    "./themes/*": "./src/themes/*"
+  }
+}

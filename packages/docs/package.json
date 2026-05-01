@@ -1,0 +1,14 @@
+{
+  "name": "@secret-lives/docs",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Documentation site for Secret Lives components. Custom Astro site, not Storybook.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'build not configured yet'",
+    "dev": "echo 'dev not configured yet'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

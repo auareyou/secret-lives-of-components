@@ -1,0 +1,25 @@
+{
+  "name": "@secret-lives/core",
+  "version": "0.0.0",
+  "description": "Lit-based web components for Secret Lives. Each component is a custom element (sl-button, sl-input, etc.).",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./sl-*.js": "./dist/components/sl-*.js"
+  },
+  "scripts": {
+    "build": "echo 'build not configured yet'",
+    "dev": "echo 'dev not configured yet'",
+    "typecheck": "echo 'typecheck not configured yet'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

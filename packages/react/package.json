@@ -1,0 +1,26 @@
+{
+  "name": "@secret-lives/react",
+  "version": "0.0.0",
+  "description": "React wrappers for Secret Lives web components, generated via @lit/react.",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "echo 'build not configured yet'",
+    "typecheck": "echo 'typecheck not configured yet'"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

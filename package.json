@@ -1,0 +1,20 @@
+{
+  "name": "secret-lives-of-components",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A white-label component library, built in public, one article per component.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r --parallel run dev",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "prettier --check .",
+    "format": "prettier --write ."
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.15.4"
+}
