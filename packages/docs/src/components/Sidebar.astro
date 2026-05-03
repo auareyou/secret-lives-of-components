@@ -1,0 +1,94 @@
+---
+import { components } from "../data/components.ts";
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<aside class="sidebar">
+  <h2 class="heading">Components</h2>
+  <ul>
+    {
+      components.map((c) => {
+        const href = `/components/${c.slug}/`;
+        const isCurrent = pathname.startsWith(href);
+        return (
+          <li>
+            <a href={href} aria-current={isCurrent ? "page" : undefined}>
+              {c.title}
+              <span class={`badge badge-${c.status}`}>{c.status}</span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</aside>
+
+<style>
+  .sidebar {
+    width: var(--doc-sidebar-width);
+    flex-shrink: 0;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid var(--doc-border);
+    font-size: 0.92rem;
+  }
+
+  .heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--doc-text-muted);
+    margin: 0 0 0.75rem 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    color: var(--doc-text-muted);
+    border-radius: 4px;
+  }
+
+  li a:hover {
+    background: var(--doc-bg-elevated);
+    color: var(--doc-text);
+    text-decoration: none;
+  }
+
+  li a[aria-current="page"] {
+    background: var(--doc-bg-elevated);
+    color: var(--doc-text);
+    font-weight: 500;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-stub {
+    background: #f3eed8;
+    color: #7a6c2a;
+  }
+
+  .badge-in-progress {
+    background: #dcecf6;
+    color: #1f5a82;
+  }
+
+  .badge-shipped {
+    background: #dff0e0;
+    color: #1f6633;
+  }
+</style>

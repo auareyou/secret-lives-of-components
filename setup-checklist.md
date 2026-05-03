@@ -43,13 +43,13 @@ Everything to go from zero to "Button article published." Check things off as yo
 
 ## Phase 4 — docs site scaffold (2-3 hrs) [claude]
 
-- [ ] `pnpm create astro` in `packages/docs` with TypeScript + MDX
-- [ ] Site shell: header, sidebar nav for components
-- [ ] Build the `<ComponentPreview>` MDX component (theme + density knobs)
-- [ ] Build `/components/[component]` dynamic route for full component pages
-- [ ] Build `/embed/[component]` route for Substack-embeddable previews (no chrome)
-- [ ] Site CSS (separate from library tokens — docs site has its own taste)
-- [ ] Components index page
+- [x] `pnpm create astro` in `packages/docs` with TypeScript + MDX (scaffolded manually — same outcome)
+- [x] Site shell: header, sidebar nav for components
+- [x] Build the `<ComponentPreview>` MDX component (theme + density knobs)
+- [x] Build `/components/[component]` dynamic route for full component pages
+- [x] Build `/embed/[component]` route for Substack-embeddable previews (no chrome)
+- [x] Site CSS (separate from library tokens — docs site has its own taste)
+- [x] Components index page
 
 ## Phase 5 — deploy and CI (45 min) [mixed]
 

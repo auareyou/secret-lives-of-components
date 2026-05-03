@@ -1,0 +1,82 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import { components } from "../../data/components.ts";
+---
+
+<DocsLayout title="Components" description="All components in the library.">
+  <h1>Components</h1>
+  <p>Each one gets an article. Each one has a secret.</p>
+
+  <ul class="grid">
+    {
+      components.map((c) => (
+        <li>
+          <a href={`/components/${c.slug}/`}>
+            <strong>{c.title}</strong>
+            <code>{`<${c.tagName}>`}</code>
+            <p>{c.blurb}</p>
+            <span class={`badge badge-${c.status}`}>{c.status}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <style>
+    .grid {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .grid a {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+      padding: 1rem;
+      border: 1px solid var(--doc-border);
+      border-radius: 6px;
+      background: var(--doc-bg-elevated);
+      color: var(--doc-text);
+      height: 100%;
+    }
+
+    .grid a:hover {
+      text-decoration: none;
+      border-color: var(--doc-text-muted);
+    }
+
+    .grid p {
+      margin: 0;
+      color: var(--doc-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-stub {
+      background: #f3eed8;
+      color: #7a6c2a;
+    }
+
+    .badge-in-progress {
+      background: #dcecf6;
+      color: #1f5a82;
+    }
+
+    .badge-shipped {
+      background: #dff0e0;
+      color: #1f6633;
+    }
+  </style>
+</DocsLayout>

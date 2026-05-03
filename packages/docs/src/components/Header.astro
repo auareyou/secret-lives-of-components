@@ -1,0 +1,77 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<header class="site-header">
+  <a href="/" class="logo">
+    <span class="logo-mark">sl</span>
+    <span class="logo-text">Secret Lives of Components</span>
+  </a>
+  <nav>
+    <a href="/components/" aria-current={pathname.startsWith("/components") ? "page" : undefined}>
+      Components
+    </a>
+    <a
+      href="https://github.com/auareyou/secret-lives-of-components"
+      target="_blank"
+      rel="noreferrer"
+    >
+      GitHub
+    </a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    height: var(--doc-header-height);
+    border-bottom: 1px solid var(--doc-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    background: var(--doc-bg-elevated);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--doc-text);
+    text-decoration: none;
+  }
+
+  .logo:hover {
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--doc-accent);
+    color: var(--doc-bg-elevated);
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .logo-text {
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  nav a {
+    color: var(--doc-text-muted);
+  }
+
+  nav a[aria-current="page"] {
+    color: var(--doc-text);
+  }
+</style>

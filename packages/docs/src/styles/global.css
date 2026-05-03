@@ -1,0 +1,103 @@
+/* Docs site CSS — distinct taste from the library tokens it documents.
+   Library tokens (--sl-*) live inside component shadow DOMs.
+   Docs tokens (--doc-*) live here on the page. */
+
+@import "@secret-lives/tokens/themes/default.css";
+
+:root {
+  --doc-bg: #fafaf7;
+  --doc-bg-elevated: #ffffff;
+  --doc-text: #1a1a1d;
+  --doc-text-muted: #66666e;
+  --doc-border: #e7e7e2;
+  --doc-accent: #2a2a30;
+  --doc-link: #2c3cd4;
+
+  --doc-font-sans: "Söhne", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --doc-font-mono: ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, monospace;
+
+  --doc-content-width: 720px;
+  --doc-sidebar-width: 240px;
+  --doc-header-height: 56px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--doc-font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--doc-text);
+  background: var(--doc-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--doc-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: var(--doc-font-mono);
+  font-size: 0.9em;
+  background: var(--doc-bg-elevated);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  border: 1px solid var(--doc-border);
+}
+
+pre {
+  font-family: var(--doc-font-mono);
+  background: var(--doc-bg-elevated);
+  border: 1px solid var(--doc-border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--doc-border);
+  margin: 2.5rem 0;
+}

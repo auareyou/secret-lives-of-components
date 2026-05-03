@@ -1,0 +1,24 @@
+---
+import EmbedLayout from "../../layouts/EmbedLayout.astro";
+import ComponentPreview from "../../components/ComponentPreview.astro";
+import { components, type ComponentEntry } from "../../data/components.ts";
+
+export function getStaticPaths() {
+  return components.map((entry) => ({
+    params: { component: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: ComponentEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<EmbedLayout title={`${entry.title} preview`}>
+  <ComponentPreview>
+    {entry.tagName === "sl-button" && <sl-button>{entry.title}</sl-button>}
+  </ComponentPreview>
+</EmbedLayout>

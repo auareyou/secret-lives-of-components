@@ -1,0 +1,59 @@
+---
+import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Secret Lives of Components</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <Header />
+    <div class="layout">
+      <Sidebar />
+      <main>
+        <article>
+          <slot />
+        </article>
+      </main>
+    </div>
+
+    <!-- Load every sl-* component once, globally. As the library grows,
+         keep this list in sync with packages/core/src/components/. -->
+    <script>
+      import "@secret-lives/core/sl-button.js";
+    </script>
+
+    <style>
+      .layout {
+        display: flex;
+        min-height: calc(100vh - var(--doc-header-height));
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        padding: 2rem 2.5rem 4rem;
+        overflow-x: auto;
+      }
+
+      article {
+        width: 100%;
+        max-width: var(--doc-content-width);
+      }
+    </style>
+  </body>
+</html>

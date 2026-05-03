@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <!-- iframe-friendly: no header, no nav, transparent body -->
+  </head>
+  <body class="embed-body">
+    <slot />
+
+    <script>
+      import "@secret-lives/core/sl-button.js";
+    </script>
+
+    <style>
+      .embed-body {
+        margin: 0;
+        background: transparent;
+      }
+    </style>
+  </body>
+</html>
