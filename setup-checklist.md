@@ -39,7 +39,7 @@ Everything to go from zero to "Button article published." Check things off as yo
 - [x] `packages/core`: install `lit`, set up Vite library build, stub `sl-button` to validate the toolchain
 - [x] `packages/react`: install `@lit/react`, `react`, `react-dom`, write the 5-line Button wrapper
 - [x] Wire each package's `package.json` exports correctly
-- [ ] Install VS Code extensions: lit-plugin, ESLint, Prettier
+- [x] Install VS Code extensions: lit-plugin, ESLint, Prettier (recommendations in `.vscode/extensions.json` — VS Code prompts on open)
 
 ## Phase 4 — docs site scaffold (2-3 hrs) [claude]
 
