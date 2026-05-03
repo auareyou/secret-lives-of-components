@@ -19,6 +19,6 @@ export const components: ComponentEntry[] = [
     tagName: "sl-button",
     title: "Button",
     blurb: "The classic. More states than designers think.",
-    status: "stub",
+    status: "shipped",
   },
 ];

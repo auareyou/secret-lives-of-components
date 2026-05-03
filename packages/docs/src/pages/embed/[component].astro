@@ -18,7 +18,13 @@ const { entry } = Astro.props;
 ---
 
 <EmbedLayout title={`${entry.title} preview`}>
-  <ComponentPreview>
-    {entry.tagName === "sl-button" && <sl-button>{entry.title}</sl-button>}
+  <ComponentPreview bare>
+    {entry.tagName === "sl-button" && (
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <sl-button variant="primary">Primary</sl-button>
+        <sl-button variant="secondary">Secondary</sl-button>
+        <sl-button variant="danger">Danger</sl-button>
+      </div>
+    )}
   </ComponentPreview>
 </EmbedLayout>
