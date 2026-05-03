@@ -54,9 +54,13 @@ Everything to go from zero to "Button article published." Check things off as yo
 ## Phase 5 — deploy and CI (45 min) [mixed]
 
 - [x] **[you]** Connect Vercel to the repo, point it at `packages/docs`
-- [ ] Note the auto-assigned `*.vercel.app` URL — this is your public URL until Phase 8
+- [x] Note the auto-assigned `*.vercel.app` URL — this is your public URL until Phase 8
 - [x] **[claude]** GitHub Actions: typecheck and build on every PR
 - [x] **[claude]** `pnpm dlx @changesets/cli init`
+
+**Public URL:** https://secret-lives-of-components.vercel.app
+
+> Deploy is via GitHub Actions (`.github/workflows/deploy.yml`), not Vercel's GitHub integration. PRs get preview deploys; pushes to main get production. Vercel is just the static host. If you reconnect Vercel's GitHub integration later, disable its auto-deploy or you'll get duplicate deploys racing each other.
 
 ## Phase 6 — first component: Button (its own session)
 
