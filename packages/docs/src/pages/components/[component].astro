@@ -21,16 +21,141 @@ const { entry } = Astro.props;
   <h1>{entry.title}</h1>
   <p class="lede">{entry.blurb}</p>
 
-  <ComponentPreview>
-    {entry.tagName === "sl-button" && <sl-button>{entry.title}</sl-button>}
-  </ComponentPreview>
+  {entry.tagName === "sl-button" && (
+    <>
+      <h2>Variants</h2>
+      <ComponentPreview>
+        <sl-button variant="primary">Primary</sl-button>
+        <sl-button variant="secondary">Secondary</sl-button>
+        <sl-button variant="danger">Danger</sl-button>
+      </ComponentPreview>
 
-  <h2>Status</h2>
-  <p>
-    This component is <code>{entry.status}</code>. The full anatomy article lives on Substack —
-    until then, this page is a placeholder for the component preview and a link target for the
-    sidebar.
-  </p>
+      <h2>Sizes</h2>
+      <ComponentPreview>
+        <sl-button size="sm">Small</sl-button>
+        <sl-button size="md">Medium</sl-button>
+        <sl-button size="lg">Large</sl-button>
+      </ComponentPreview>
+
+      <h2>States</h2>
+      <ComponentPreview>
+        <sl-button>Default</sl-button>
+        <sl-button disabled>Disabled</sl-button>
+        <sl-button loading>Loading</sl-button>
+      </ComponentPreview>
+
+      <h2>With icons</h2>
+      <ComponentPreview>
+        <sl-button>
+          <svg slot="prefix" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Add item
+        </sl-button>
+        <sl-button variant="secondary">
+          Settings
+          <svg slot="suffix" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </sl-button>
+      </ComponentPreview>
+
+      <h2>Variant &times; size</h2>
+      <ComponentPreview>
+        <div class="grid">
+          <sl-button variant="primary" size="sm">Primary sm</sl-button>
+          <sl-button variant="primary" size="md">Primary md</sl-button>
+          <sl-button variant="primary" size="lg">Primary lg</sl-button>
+          <sl-button variant="secondary" size="sm">Secondary sm</sl-button>
+          <sl-button variant="secondary" size="md">Secondary md</sl-button>
+          <sl-button variant="secondary" size="lg">Secondary lg</sl-button>
+          <sl-button variant="danger" size="sm">Danger sm</sl-button>
+          <sl-button variant="danger" size="md">Danger md</sl-button>
+          <sl-button variant="danger" size="lg">Danger lg</sl-button>
+        </div>
+      </ComponentPreview>
+
+      <h2>Form association</h2>
+      <ComponentPreview>
+        <form id="demo-form" class="demo-form">
+          <input type="text" name="demo" placeholder="Type something..." />
+          <sl-button type="submit">Submit</sl-button>
+          <sl-button type="reset" variant="secondary">Reset</sl-button>
+        </form>
+      </ComponentPreview>
+
+      <h2>Properties</h2>
+      <table class="props-table">
+        <thead>
+          <tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>variant</code></td><td><code>"primary" | "secondary" | "danger"</code></td><td><code>"primary"</code></td><td>Visual intent</td></tr>
+          <tr><td><code>size</code></td><td><code>"sm" | "md" | "lg"</code></td><td><code>"md"</code></td><td>Controls padding and font size</td></tr>
+          <tr><td><code>disabled</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Blocks interaction</td></tr>
+          <tr><td><code>loading</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Shows spinner, blocks interaction</td></tr>
+          <tr><td><code>type</code></td><td><code>"button" | "submit" | "reset"</code></td><td><code>"button"</code></td><td>Form button type</td></tr>
+          <tr><td><code>name</code></td><td><code>string</code></td><td><code>""</code></td><td>Form submission key</td></tr>
+          <tr><td><code>value</code></td><td><code>string</code></td><td><code>""</code></td><td>Form submission value</td></tr>
+          <tr><td><code>label</code></td><td><code>string</code></td><td><code>""</code></td><td>Accessible label fallback</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Slots</h2>
+      <table class="props-table">
+        <thead>
+          <tr><th>Slot</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>(default)</td><td>Label text</td></tr>
+          <tr><td><code>prefix</code></td><td>Content before the label (icon, badge)</td></tr>
+          <tr><td><code>suffix</code></td><td>Content after the label (icon, chevron)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Component tokens</h2>
+      <table class="props-table">
+        <thead>
+          <tr><th>Token</th><th>Default</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>--sl-button-bg</code></td><td><code>var(--sl-color-action)</code></td></tr>
+          <tr><td><code>--sl-button-bg-hover</code></td><td><code>var(--sl-color-action-hover)</code></td></tr>
+          <tr><td><code>--sl-button-bg-active</code></td><td><code>var(--sl-color-action-active)</code></td></tr>
+          <tr><td><code>--sl-button-text</code></td><td><code>var(--sl-color-action-text)</code></td></tr>
+          <tr><td><code>--sl-button-border-color</code></td><td><code>transparent</code></td></tr>
+          <tr><td><code>--sl-button-radius</code></td><td><code>var(--sl-radius-base)</code></td></tr>
+          <tr><td><code>--sl-button-font-size</code></td><td><code>var(--sl-font-size-base)</code></td></tr>
+          <tr><td><code>--sl-button-icon-opacity</code></td><td><code>0.8</code></td></tr>
+          <tr><td><code>--sl-button-opacity-disabled</code></td><td><code>0.5</code></td></tr>
+          <tr><td><code>--sl-button-transition</code></td><td><code>var(--sl-transition-base)</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2>Usage</h2>
+      <div class="code-examples">
+        <div class="code-block">
+          <h3>Web Component</h3>
+          <pre><code>&lt;sl-button variant="primary" size="md"&gt;Save&lt;/sl-button&gt;
+
+&lt;sl-button variant="danger" loading&gt;Deleting...&lt;/sl-button&gt;
+
+&lt;sl-button variant="secondary"&gt;
+  &lt;svg slot="prefix"&gt;...&lt;/svg&gt;
+  With icon
+&lt;/sl-button&gt;</code></pre>
+        </div>
+        <div class="code-block">
+          <h3>React</h3>
+          <pre><code>import {'{'} SlButton {'}'} from '@secret-lives/react';
+
+&lt;SlButton variant="primary" size="md"&gt;Save&lt;/SlButton&gt;
+
+&lt;SlButton variant="danger" loading&gt;Deleting...&lt;/SlButton&gt;</code></pre>
+        </div>
+      </div>
+    </>
+  )}
 
   <h2>Embed</h2>
   <p>
@@ -42,7 +167,93 @@ const { entry } = Astro.props;
     .lede {
       font-size: 1.1rem;
       color: var(--doc-text-muted);
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 0.75rem;
+      justify-items: start;
+    }
+
+    .demo-form {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .demo-form input[type="text"] {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--sl-color-border-strong, #b3b3bb);
+      border-radius: var(--sl-radius-base, 8px);
+      font: inherit;
+      font-size: 0.95rem;
+    }
+
+    .props-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .props-table th,
+    .props-table td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--doc-border);
+    }
+
+    .props-table th {
+      font-weight: 600;
+      color: var(--doc-text-muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .props-table code {
+      font-size: 0.82rem;
+      background: var(--doc-bg-elevated, #f7f7f8);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+
+    .code-examples {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .code-block h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--doc-text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .code-block pre {
+      background: var(--doc-bg-elevated, #f7f7f8);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      margin-top: 2.5rem;
     }
   </style>
+
+  <script>
+    document.getElementById('demo-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(e.target as HTMLFormElement);
+      alert(`Form submitted! Value: "${data.get('demo')}"`);
+    });
+  </script>
 </DocsLayout>
