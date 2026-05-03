@@ -1,0 +1,79 @@
+---
+import DocsLayout from "../layouts/DocsLayout.astro";
+import { components } from "../data/components.ts";
+---
+
+<DocsLayout
+  title="Home"
+  description="A white-label component library, built in public, one article per component."
+>
+  <h1>Secret Lives of Components</h1>
+  <p class="lede">
+    A white-label component library, built in public, one article per component. Each component is
+    dissected — anatomy, states, slots, tokens, edge cases, and the one non-obvious decision you'd
+    never know to ask about.
+  </p>
+
+  <h2>Currently in the library</h2>
+  <ul class="component-list">
+    {
+      components.map((c) => (
+        <li>
+          <a href={`/components/${c.slug}/`}>
+            <strong>{c.title}</strong>
+            <span>{c.blurb}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2>How this works</h2>
+  <p>
+    Every component is its own Web Component (custom element with a <code>sl-</code> prefix), built
+    on Lit. There's a thin React adapter so React readers still get familiar JSX. Components live
+    in <code>@secret-lives/core</code>; React wrappers in <code>@secret-lives/react</code>; design
+    tokens in <code>@secret-lives/tokens</code>.
+  </p>
+  <p>
+    The articles are the product. The library is the artifact.
+  </p>
+
+  <style>
+    .lede {
+      font-size: 1.1rem;
+      color: var(--doc-text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .component-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .component-list a {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1rem;
+      border: 1px solid var(--doc-border);
+      border-radius: 6px;
+      background: var(--doc-bg-elevated);
+      color: var(--doc-text);
+    }
+
+    .component-list a:hover {
+      text-decoration: none;
+      border-color: var(--doc-text-muted);
+    }
+
+    .component-list span {
+      color: var(--doc-text-muted);
+      font-size: 0.95rem;
+    }
+  </style>
+</DocsLayout>

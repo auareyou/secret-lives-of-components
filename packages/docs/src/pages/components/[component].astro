@@ -1,0 +1,48 @@
+---
+import DocsLayout from "../../layouts/DocsLayout.astro";
+import ComponentPreview from "../../components/ComponentPreview.astro";
+import { components, type ComponentEntry } from "../../data/components.ts";
+
+export function getStaticPaths() {
+  return components.map((entry) => ({
+    params: { component: entry.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: ComponentEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<DocsLayout title={entry.title} description={entry.blurb}>
+  <h1>{entry.title}</h1>
+  <p class="lede">{entry.blurb}</p>
+
+  <ComponentPreview>
+    {entry.tagName === "sl-button" && <sl-button>{entry.title}</sl-button>}
+  </ComponentPreview>
+
+  <h2>Status</h2>
+  <p>
+    This component is <code>{entry.status}</code>. The full anatomy article lives on Substack —
+    until then, this page is a placeholder for the component preview and a link target for the
+    sidebar.
+  </p>
+
+  <h2>Embed</h2>
+  <p>
+    For Substack iframes, use the chromeless route:
+    <code>{`/embed/${entry.slug}/`}</code>.
+  </p>
+
+  <style>
+    .lede {
+      font-size: 1.1rem;
+      color: var(--doc-text-muted);
+      margin-bottom: 1rem;
+    }
+  </style>
+</DocsLayout>

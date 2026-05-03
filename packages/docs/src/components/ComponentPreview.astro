@@ -1,0 +1,114 @@
+---
+/**
+ * Live preview frame with theme + density knobs.
+ * Wrap any sl-* component inside it via <slot />.
+ *
+ * Usage in MDX or .astro:
+ *   <ComponentPreview>
+ *     <sl-button>Click me</sl-button>
+ *   </ComponentPreview>
+ */
+
+interface Props {
+  /** Initial density mode. */
+  density?: "compact" | "default" | "comfortable";
+  /** Initial shape mode. */
+  shape?: "default" | "sharp" | "pill";
+  /** Hide the toggle bar (used by /embed routes that want a chromeless preview). */
+  bare?: boolean;
+}
+
+const { density = "default", shape = "default", bare = false } = Astro.props;
+---
+
+<div class="preview" data-density={density === "default" ? null : density} data-shape={shape === "default" ? null : shape}>
+  {
+    !bare && (
+      <div class="toolbar" role="toolbar" aria-label="Preview controls">
+        <fieldset>
+          <legend>Density</legend>
+          <label><input type="radio" name="density" value="compact" /> Compact</label>
+          <label><input type="radio" name="density" value="default" checked={density === "default"} /> Default</label>
+          <label><input type="radio" name="density" value="comfortable" /> Comfortable</label>
+        </fieldset>
+        <fieldset>
+          <legend>Shape</legend>
+          <label><input type="radio" name="shape" value="default" checked={shape === "default"} /> Default</label>
+          <label><input type="radio" name="shape" value="sharp" /> Sharp</label>
+          <label><input type="radio" name="shape" value="pill" /> Pill</label>
+        </fieldset>
+      </div>
+    )
+  }
+  <div class="stage">
+    <slot />
+  </div>
+</div>
+
+<script>
+  // Wire each preview's toggles to its own data-* attributes.
+  for (const preview of document.querySelectorAll<HTMLElement>(".preview")) {
+    preview.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((input) => {
+      input.addEventListener("change", () => {
+        const attr = `data-${input.name}`;
+        if (input.value === "default") {
+          preview.removeAttribute(attr);
+        } else {
+          preview.setAttribute(attr, input.value);
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  .preview {
+    border: 1px solid var(--doc-border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--doc-bg-elevated);
+    margin: 1.5rem 0;
+  }
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--doc-border);
+    background: var(--doc-bg);
+    font-size: 0.82rem;
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  legend {
+    color: var(--doc-text-muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-right: 0.4rem;
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+
+  .stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+    padding: 2rem;
+  }
+</style>

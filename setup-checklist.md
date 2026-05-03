@@ -18,7 +18,7 @@ Everything to go from zero to "Button article published." Check things off as yo
 
 - [x] `npm login` (claims `@secret-lives` on first publish)
 - [x] Create public GitHub repo `secret-lives-of-components` (init with MIT license + empty README)
-- [ ] Create Vercel account, link to GitHub
+- [x] Create Vercel account, link to GitHub
 
 > Substack is deferred to Phase 8 — no point reserving a publication until there's something to publish.
 
@@ -43,20 +43,20 @@ Everything to go from zero to "Button article published." Check things off as yo
 
 ## Phase 4 — docs site scaffold (2-3 hrs) [claude]
 
-- [ ] `pnpm create astro` in `packages/docs` with TypeScript + MDX
-- [ ] Site shell: header, sidebar nav for components
-- [ ] Build the `<ComponentPreview>` MDX component (theme + density knobs)
-- [ ] Build `/components/[component]` dynamic route for full component pages
-- [ ] Build `/embed/[component]` route for Substack-embeddable previews (no chrome)
-- [ ] Site CSS (separate from library tokens — docs site has its own taste)
-- [ ] Components index page
+- [x] `pnpm create astro` in `packages/docs` with TypeScript + MDX (scaffolded manually — same outcome)
+- [x] Site shell: header, sidebar nav for components
+- [x] Build the `<ComponentPreview>` MDX component (theme + density knobs)
+- [x] Build `/components/[component]` dynamic route for full component pages
+- [x] Build `/embed/[component]` route for Substack-embeddable previews (no chrome)
+- [x] Site CSS (separate from library tokens — docs site has its own taste)
+- [x] Components index page
 
 ## Phase 5 — deploy and CI (45 min) [mixed]
 
-- [ ] **[you]** Connect Vercel to the repo, point it at `packages/docs`
+- [x] **[you]** Connect Vercel to the repo, point it at `packages/docs`
 - [ ] Note the auto-assigned `*.vercel.app` URL — this is your public URL until Phase 8
-- [ ] **[claude]** GitHub Actions: typecheck and build on every PR
-- [ ] **[claude]** `pnpm dlx @changesets/cli init`
+- [x] **[claude]** GitHub Actions: typecheck and build on every PR
+- [x] **[claude]** `pnpm dlx @changesets/cli init`
 
 ## Phase 6 — first component: Button (its own session)
 

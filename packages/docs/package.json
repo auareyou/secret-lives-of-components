@@ -6,7 +6,19 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "build": "echo 'build not configured yet'",
-    "dev": "echo 'dev not configured yet'"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.4",
+    "@secret-lives/core": "workspace:^",
+    "@secret-lives/tokens": "workspace:^",
+    "astro": "^6.2.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "typescript": "^6.0.3"
   }
 }
