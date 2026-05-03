@@ -1,0 +1,77 @@
+/* Primitive tokens — raw values. Never consumed by components directly. */
+
+:where(:root) {
+  /* Color — neutral */
+  --sl-color-neutral-0: #ffffff;
+  --sl-color-neutral-50: #f7f7f8;
+  --sl-color-neutral-100: #ececef;
+  --sl-color-neutral-200: #d4d4da;
+  --sl-color-neutral-300: #b3b3bb;
+  --sl-color-neutral-400: #8e8e98;
+  --sl-color-neutral-500: #6e6e78;
+  --sl-color-neutral-600: #54545c;
+  --sl-color-neutral-700: #3d3d44;
+  --sl-color-neutral-800: #25252a;
+  --sl-color-neutral-900: #131316;
+
+  /* Color — accent */
+  --sl-color-accent-50: #eef2ff;
+  --sl-color-accent-100: #dbe2ff;
+  --sl-color-accent-200: #b9c5ff;
+  --sl-color-accent-300: #8fa1ff;
+  --sl-color-accent-400: #6478ff;
+  --sl-color-accent-500: #3f52f4;
+  --sl-color-accent-600: #2c3cd4;
+  --sl-color-accent-700: #2330a8;
+  --sl-color-accent-800: #1c2780;
+  --sl-color-accent-900: #151c5c;
+
+  /* Color — danger */
+  --sl-color-danger-500: #d63b3b;
+  --sl-color-danger-600: #b32c2c;
+
+  /* Spacing — 4px base */
+  --sl-space-1: 0.25rem;
+  --sl-space-2: 0.5rem;
+  --sl-space-3: 0.75rem;
+  --sl-space-4: 1rem;
+  --sl-space-5: 1.25rem;
+  --sl-space-6: 1.5rem;
+  --sl-space-8: 2rem;
+  --sl-space-10: 2.5rem;
+
+  /* Radii */
+  --sl-radius-none: 0;
+  --sl-radius-sm: 4px;
+  --sl-radius-md: 8px;
+  --sl-radius-lg: 12px;
+  --sl-radius-pill: 999px;
+
+  /* Type */
+  --sl-font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --sl-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --sl-font-size-xs: 0.75rem;
+  --sl-font-size-sm: 0.875rem;
+  --sl-font-size-md: 1rem;
+  --sl-font-size-lg: 1.125rem;
+
+  --sl-font-weight-regular: 400;
+  --sl-font-weight-medium: 500;
+  --sl-font-weight-semibold: 600;
+
+  --sl-line-height-tight: 1.2;
+  --sl-line-height-normal: 1.5;
+
+  /* Motion */
+  --sl-duration-fast: 120ms;
+  --sl-duration-medium: 200ms;
+  --sl-duration-slow: 320ms;
+
+  --sl-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --sl-easing-emphasized: cubic-bezier(0.3, 0, 0, 1.2);
+
+  /* Elevation */
+  --sl-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --sl-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

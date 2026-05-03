@@ -4,7 +4,9 @@
   "description": "React wrappers for Secret Lives web components, generated via @lit/react.",
   "license": "MIT",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -15,12 +17,23 @@
     }
   },
   "scripts": {
-    "build": "echo 'build not configured yet'",
-    "typecheck": "echo 'typecheck not configured yet'"
+    "build": "vite build && tsc -p tsconfig.json",
+    "dev": "vite build --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
     "react": ">=18"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@lit/react": "^1.0.8",
+    "@secret-lives/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  }
 }

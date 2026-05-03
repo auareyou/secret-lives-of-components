@@ -8,7 +8,5 @@
   "scripts": {
     "build": "echo 'build not configured yet'",
     "dev": "echo 'dev not configured yet'"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  }
 }

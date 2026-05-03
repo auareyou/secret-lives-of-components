@@ -1,0 +1,74 @@
+/* Semantic tokens — purpose-named. Components consume only these. Brands override. */
+
+:where(:root) {
+  /* Surface */
+  --sl-color-surface: var(--sl-color-neutral-0);
+  --sl-color-surface-muted: var(--sl-color-neutral-50);
+  --sl-color-surface-inverse: var(--sl-color-neutral-900);
+
+  /* Text */
+  --sl-color-text: var(--sl-color-neutral-900);
+  --sl-color-text-muted: var(--sl-color-neutral-600);
+  --sl-color-text-inverse: var(--sl-color-neutral-0);
+  --sl-color-text-disabled: var(--sl-color-neutral-400);
+
+  /* Border */
+  --sl-color-border: var(--sl-color-neutral-200);
+  --sl-color-border-strong: var(--sl-color-neutral-400);
+
+  /* Action — the primary brand-colored interaction surface */
+  --sl-color-action: var(--sl-color-accent-500);
+  --sl-color-action-hover: var(--sl-color-accent-600);
+  --sl-color-action-active: var(--sl-color-accent-700);
+  --sl-color-action-text: var(--sl-color-neutral-0);
+
+  /* Danger */
+  --sl-color-danger: var(--sl-color-danger-500);
+  --sl-color-danger-hover: var(--sl-color-danger-600);
+
+  /* Focus */
+  --sl-color-focus-ring: var(--sl-color-accent-400);
+  --sl-focus-ring-width: 2px;
+  --sl-focus-ring-offset: 2px;
+
+  /* Density (spacing scale used in components) */
+  --sl-spacing-xs: var(--sl-space-1);
+  --sl-spacing-sm: var(--sl-space-2);
+  --sl-spacing-md: var(--sl-space-3);
+  --sl-spacing-lg: var(--sl-space-4);
+
+  /* Shape */
+  --sl-radius-base: var(--sl-radius-md);
+
+  /* Typography */
+  --sl-font-family: var(--sl-font-sans);
+  --sl-font-size-base: var(--sl-font-size-md);
+  --sl-font-weight-base: var(--sl-font-weight-regular);
+
+  /* Motion */
+  --sl-transition-base: var(--sl-duration-fast) var(--sl-easing-standard);
+}
+
+/* Density modes — top-level data attribute cascade */
+:where([data-density="compact"]) {
+  --sl-spacing-xs: 0;
+  --sl-spacing-sm: var(--sl-space-1);
+  --sl-spacing-md: var(--sl-space-2);
+  --sl-spacing-lg: var(--sl-space-3);
+}
+
+:where([data-density="comfortable"]) {
+  --sl-spacing-xs: var(--sl-space-2);
+  --sl-spacing-sm: var(--sl-space-3);
+  --sl-spacing-md: var(--sl-space-4);
+  --sl-spacing-lg: var(--sl-space-5);
+}
+
+/* Shape modes */
+:where([data-shape="sharp"]) {
+  --sl-radius-base: var(--sl-radius-none);
+}
+
+:where([data-shape="pill"]) {
+  --sl-radius-base: var(--sl-radius-pill);
+}
